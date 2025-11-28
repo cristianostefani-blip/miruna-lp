@@ -33,7 +33,7 @@
   --input: 0 0% 20%;
   --ring: 212 100% 85%; /* Brilho Prateado no foco */
   
-  --radius: 0rem; /* Bordas quadradas (mais sério/moderno) */
+  --radius: 0,75rem;
 }
 
 /* O Gradiente "Platinum" */
@@ -43,6 +43,40 @@
 
 @utility bg-silver-gradient {
   @apply bg-linear-to-r from-[#E2E2E2] via-[#FFFFFF] to-[#9CA3AF];
+}
+
+@utility btn-glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.05)];
+}
+
+/* EFEITO DE LUZ QUE ANDA (SHIMMER) */
+@keyframes shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Utilitário para o Botão Joia */
+@utility btn-platinum-shine {
+  @apply relative inline-flex items-center justify-center overflow-hidden font-bold text-black transition-all duration-300;
+  /* O Gradiente que se move */
+  background: linear-gradient(
+    110deg,
+    #e2e2e2 25%,   /* Prata Base */
+    #ffffff 45%,   /* Brilho Branco no meio */
+    #e2e2e2 55%    /* Prata Base */
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite; /* Velocidade do brilho */
+}
+
+/* Utilitário para o Ícone Joia (Pulsante) */
+@utility icon-jewel {
+  @apply text-stone-300 transition-all duration-500;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); /* Brilho interno */
 }
 
 body {

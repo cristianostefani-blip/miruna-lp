@@ -25,18 +25,34 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="bg-black py-16 border-b border-stone-900">
+    <section className="bg-stone-950 py-20 border-b border-stone-900">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {features.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center group cursor-default">
-              <div className="mb-4 p-4 rounded-full border border-stone-800 group-hover:border-[#BF953F] transition-colors duration-500">
-                {/* Ícone Dourado */}
-                <item.icon className="h-8 w-8 text-[#BF953F]" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-              <p className="text-stone-500 text-sm max-w-[150px]">{item.description}</p>
-            </div>
+  
+  {/* O ANEL DA JOIA (Círculo) */}
+  <div className="relative mb-6 p-5 rounded-full transition-all duration-500 group-hover:-translate-y-2">
+    
+    {/* 1. O Brilho de Fundo (Glow Pulsante) */}
+    <div className="absolute inset-0 rounded-full bg-white/5 blur-md animate-pulse group-hover:bg-white/20" />
+    
+    {/* 2. A Borda Metálica (O Aro da Joia) */}
+    <div className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/60 shadow-[inset_0_0_10px_rgba(255,255,255,0.1)]" />
+
+    {/* 3. O Ícone (A Pedra Preciosa) */}
+    {/* Adicionei 'icon-jewel' e aumentei o brilho no hover */}
+    <item.icon className="relative h-8 w-8 text-stone-400 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-500" />
+  
+  </div>
+
+  <h3 className="text-white font-bold text-lg mb-2 tracking-wide group-hover:text-silver-gradient transition-colors">
+    {item.title}
+  </h3>
+  <p className="text-stone-500 text-sm max-w-[150px] leading-relaxed group-hover:text-stone-300 transition-colors">
+    {item.description}
+  </p>
+</div>
           ))}
         </div>
       </div>

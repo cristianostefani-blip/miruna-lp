@@ -18,7 +18,7 @@ export const Hero = () => {
         <img 
           src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop" 
           alt="Ambiente Miruna" 
-          className="w-full h-full object-cover opacity-60 grayscale"
+          className="w-full h-full object-cover opacity-60 animate-in fade-in duration-1000"
         />
       </div>
 
@@ -30,9 +30,9 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <h2 className="text-white tracking-[0.2em] text-sm md:text-base mb-4 uppercase font-medium">
-            Bem-vindo ao Miruna
-          </h2>
+          <h2 className="text-stone-400 tracking-[0.2em] text-xs font-medium mb-6 uppercase border border-white/20 rounded-full px-4 py-2 inline-block backdrop-blur-sm bg-black/30">
+  Bem-vindo a Miruna Massagens
+</h2>
           
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white">
             MASSAGEM <br />
@@ -49,7 +49,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-6">
             <Button 
               asChild 
-              className="bg-silver-gradient text-black font-bold h-14 px-10 rounded-none hover:opacity-90 transition-opacity text-lg tracking-wide uppercase"
+              className="bg-silver-gradient text-black font-bold h-14 px-10 hover:opacity-90 transition-opacity text-lg tracking-wide uppercase"
             >
               <Link href={whatsappLink}>
                 Agendar Agora
@@ -59,10 +59,10 @@ export const Hero = () => {
             <Button 
               asChild 
               variant="outline"
-              className="border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white h-14 px-8 rounded-none uppercase tracking-widest bg-transparent"
+              className="border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white h-14 px-8 uppercase tracking-widest bg-transparent"
             >
               <Link href="#servicos">
-                Conhecer Suítes
+                Conhecer o Spa
               </Link>
             </Button>
           </div>
