@@ -1,9 +1,10 @@
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
-import { Suites } from "@/components/landing/Suites"; // <--- Importe aqui
+import { Suites } from "@/components/landing/Suites";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { Massages } from "@/components/landing/Massages";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
-      <Suites /> {/* <--- Adicione aqui */}
+      <Suites />
+      <Massages />
       <Footer />
       <FloatingWhatsApp />
     </main>

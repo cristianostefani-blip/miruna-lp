@@ -3,22 +3,23 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import Image from "next/image";
 
 export const Hero = () => {
-  const whatsappLink = "https://wa.me/5511999999999";
+  const whatsappLink = "https://wa.me/5511958687434";
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
       
-      {/* 1. Imagem de Fundo (Grayscale/Dark igual Lushness) */}
+      {/* 1. Imagem de Fundo (Capa de Revista) */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-transparent z-10" />
-        {/* Use uma foto de rosto/ombro em P&B de alta qualidade aqui */}
-        <img 
-          src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop" 
-          alt="Ambiente Miruna" 
-          className="w-full h-full object-cover opacity-60 animate-in fade-in duration-1000"
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/40 to-transparent z-10" />
+        <Image
+            src="/hero-bg.jpg"
+            alt="Miruna Spa Experience" 
+            fill
+            className="object-cover animate-in fade-in duration-1000 object-top"
+            priority
         />
       </div>
 
@@ -31,37 +32,38 @@ export const Hero = () => {
           className="max-w-3xl"
         >
           <h2 className="text-stone-400 tracking-[0.2em] text-xs font-medium mb-6 uppercase border border-white/20 rounded-full px-4 py-2 inline-block backdrop-blur-sm bg-black/30">
-  Bem-vindo a Miruna Massagens
-</h2>
+            Bem-vindo a Miruna Massagens
+          </h2>
           
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white">
-            MASSAGEM <br />
-            {/* O famoso degradê dourado */}
+            EXPERIÊNCIA <br />
             <span className="text-silver-gradient font-serif italic pr-4">
-              Relaxante
+              Premium
             </span>
           </h1>
 
-          <p className="text-stone-300 text-lg md:text-xl max-w-lg mb-10 font-light border-l-2 border-primary pl-6">
-            Venha experimentar novas sensações em um ambiente onde o conforto e a discrição são prioridade absoluta.
+          <p className="text-stone-300 text-lg md:text-xl max-w-lg mb-10 font-light border-l-2 border-stone-100 pl-6">
+            Um refúgio de tecnologia e bem-estar em Moema. Privacidade absoluta e atendimento de alto padrão.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6">
+            {/* Botão Principal */}
             <Button 
               asChild 
-              className="bg-silver-gradient text-black font-bold h-14 px-10 hover:opacity-90 transition-opacity text-lg tracking-wide uppercase"
+              className="bg-silver-gradient text-black font-bold h-14 px-10 rounded-full hover:opacity-90 transition-opacity text-lg tracking-wide uppercase"
             >
               <Link href={whatsappLink}>
-                Agendar Agora
+                Agendar Horário
               </Link>
             </Button>
             
+            {/* Botão Secundário */}
             <Button 
               asChild 
               variant="outline"
-              className="border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white h-14 px-8 uppercase tracking-widest bg-transparent"
+              className="border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white h-14 px-8 rounded-full uppercase tracking-widest bg-transparent"
             >
-              <Link href="#servicos">
+              <Link href="#ambientes">
                 Conhecer o Spa
               </Link>
             </Button>
@@ -69,7 +71,6 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Detalhe de Luxo no Rodapé do Hero */}
       <div className="absolute bottom-0 w-full h-1 bg-silver-gradient" />
     </section>
   );

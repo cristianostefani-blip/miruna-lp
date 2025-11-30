@@ -22,15 +22,13 @@ const suites = [
   },
   {
     title: "Lounge Executivo",
-    desc: "Espaço amplo com ducha dupla e isolamento acústico.",
-    // URL NOVA E TESTADA
-    img: "https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2000&auto=format&fit=crop"
+    desc: "Espaço amplo garantindo total discrição e exclusividade",
+    img: "/lounge-real.jpg", // Foto local
   },
   {
-    title: "Sala Zen",
-    desc: "Tatame japonês tradicional e iluminação âmbar.",
-    // URL NOVA (Essa estava funcionando, mas vamos garantir)
-    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
+    title: "Sala Platinum",
+    desc: "Espaço exclusivo com decoração sofisticada e iluminação ambiente.",
+    img: "/sala-platinum.jpg", // Foto local
   }
 ];
 
