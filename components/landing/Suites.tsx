@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
 // Duplicamos os itens para ter 6 cards no total
 const suites = [
@@ -72,7 +73,10 @@ export const Suites = () => {
                 loop: true,
                 align: "start" 
               }}
-          className="w-full max-w-5xl">
+              plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+              className="w-full max-w-5xl"
+          >
+          className="w-full max-w-5xl"
             <CarouselContent>
                 {suites.map((suite, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
