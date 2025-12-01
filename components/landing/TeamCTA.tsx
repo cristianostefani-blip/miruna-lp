@@ -30,7 +30,7 @@ export const TeamCTA = () => {
           
           {/* Título Escuro para Contraste no Prata */}
           <h3 className="font-heading text-3xl md:text-4xl text-stone-900 mb-3 font-bold tracking-tight drop-shadow-sm">
-            Equipe altamente selcionada
+            Equipe altamente selecionada
           </h3>
           
           <p className="text-stone-700 font-medium text-base max-w-lg leading-relaxed">

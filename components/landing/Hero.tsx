@@ -11,10 +11,25 @@ export const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
       
-      {/* 1. Imagem de Fundo (Capa de Revista) */}
+      {/* 1. Imagem de Fundo com Iluminação de Estúdio */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent md:bg-linear-to-r md:from-black md:via-black/40 md:to-transparent z-10" />
-        <Image
+        
+        {/* CAMADA 1: VIGNETTE (O pedido principal) 
+            - Deixa o centro (olhos) transparente e escurece as bordas suavemente.
+        */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.9)_120%)] z-10" />
+        
+        {/* CAMADA 2: PROTEÇÃO DO LOGO (Topo)
+            - Garante que o menu e o logo sempre tenham contraste no topo.
+        */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black/80 via-black/20 to-transparent z-10" />
+
+        {/* CAMADA 3: LEITURA DE TEXTO (Esquerda) 
+            - Garante que o título "Experiência Premium" não suma no fundo claro.
+        */}
+        <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-linear-to-r from-black/60 via-transparent to-transparent z-10" />
+
+        <Image 
             src="/hero-bg.jpg"
             alt="Miruna Spa Experience" 
             fill
