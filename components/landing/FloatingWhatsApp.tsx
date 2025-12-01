@@ -15,7 +15,7 @@ export const FloatingWhatsApp = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const whatsappLink = "https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20site.";
+  const whatsappLink = "https://wa.me/5511958687434";
 
   return (
     <AnimatePresence>

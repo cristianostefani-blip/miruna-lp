@@ -15,8 +15,8 @@ const categories = {
       time: "60min / 90min",
       desc: "Nossa experiência assinatura. Fusão de toques suaves e óleos aquecidos.",
       tags: ["Aromaterapia", "Toque Suave"],
-      image: "/hands.jpg" // <--- Vírgula aqui é importante!
-    }, // <--- Vírgula aqui separando os objetos
+      image: "/hands.jpg",
+    },
     {
       title: "Terapia Sensorial",
       time: "60min / 90min",
@@ -133,14 +133,14 @@ const MassageCard = ({ item, icon: Icon }: any) => (
         </div>
       </div>
 
-      {/* Botão de Ação */}
+      {/* Botão de Ação 
       <div className="p-6 sm:pl-0 flex items-center justify-center sm:w-32">
-         {/* <span className="text-white font-bold text-sm">{item.price}</span> (Opcional mostrar preço) */}
+         <span className="text-white font-bold text-sm">{item.price}</span> (Opcional mostrar preço) 
          <Button variant="outline" className="rounded-full w-full border-stone-600 text-stone-300 hover:bg-white hover:text-black font-bold text-xs uppercase tracking-widest">
             Reservar
          </Button>
       </div>
-
+*/}
     </CardContent>
   </Card>
 );

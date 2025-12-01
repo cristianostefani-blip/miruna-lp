@@ -12,23 +12,38 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-// URLs atualizadas e estáveis do Unsplash
+// Duplicamos os itens para ter 6 cards no total
 const suites = [
   {
     title: "Suíte Platinum",
     desc: "Hidromassagem cromoterápica e teto estrelado.",
-    // URL NOVA
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Lounge Executivo",
-    desc: "Espaço amplo garantindo total discrição e exclusividade",
-    img: "/lounge-real.jpg", // Foto local
+    desc: "Espaço amplo com ducha dupla e isolamento acústico.",
+    img: "/lounge-real.jpg"
   },
   {
-    title: "Sala Platinum",
-    desc: "Espaço exclusivo com decoração sofisticada e iluminação ambiente.",
-    img: "/sala-platinum.jpg", // Foto local
+    title: "Sala Zen",
+    desc: "Tatame japonês tradicional e iluminação âmbar.",
+    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
+  },
+  // --- REPETIÇÃO PARA EFEITO VISUAL ---
+  {
+    title: "Suíte Presidencial", // Mudei o nome para parecer outro
+    desc: "Exclusividade total com área de repouso privativa.",
+    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Lounge Bar",
+    desc: "Ambiente descontraído para o pré ou pós atendimento.",
+    img: "/lounge-real.jpg"
+  },
+  {
+    title: "Sala Terapêutica",
+    desc: "Iluminação focada no relaxamento profundo.",
+    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
   }
 ];
 
@@ -52,7 +67,12 @@ export const Suites = () => {
 
         {/* CARROSSEL */}
         <div className="flex justify-center">
-            <Carousel className="w-full max-w-5xl">
+          <Carousel 
+              opts={{ 
+                loop: true,
+                align: "start" 
+              }}
+          className="w-full max-w-5xl">
             <CarouselContent>
                 {suites.map((suite, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -68,15 +88,19 @@ export const Suites = () => {
                                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
                             />
                         </div>
+                        
                         <div className="p-6">
                             <h4 className="text-xl text-white font-medium mb-2">{suite.title}</h4>
                             <p className="text-stone-400 text-sm leading-relaxed mb-6 h-10 line-clamp-2">
                                 {suite.desc}
                             </p>
+                            {/*
                             <Button className="w-full rounded-full bg-stone-800 text-white hover:bg-white hover:text-black transition-colors duration-300 text-xs uppercase tracking-widest font-bold">
                                 Ver Detalhes <ArrowRight className="ml-2 h-3 w-3" />
                             </Button>
+                            */}
                         </div>
+                        
                         </CardContent>
                     </Card>
                     </div>

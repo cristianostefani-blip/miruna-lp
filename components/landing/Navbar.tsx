@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react"; // Faltava isso
-import Link from "next/link"; // Faltava isso
-import Image from "next/image"; // Faltava isso
-import { Button } from "@/components/ui/button"; // Faltava isso
-import { MessageCircle, Menu } from "lucide-react"; // Faltava isso
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"; // Faltava isso
+import { useState, useEffect } from "react"; 
+import Link from "next/link"; 
+import Image from "next/image"; 
+import { Button } from "@/components/ui/button"; 
+import { MessageCircle, Menu } from "lucide-react"; 
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"; 
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,6 +40,7 @@ export const Navbar = () => {
           <Link href="#inicio" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">Início</Link>
           <Link href="#ambientes" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">O Spa</Link>
           <Link href="#massagens" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">Terapias</Link>
+          <Link href="#terapeutas" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">Terapeutas</Link>
           
 {/* BOTÃO PLATINUM COM "LUZ ANDANDO" */}
 <Button asChild className="rounded-full px-8 py-6 uppercase tracking-widest text-xs border-2 border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] btn-platinum-shine hover:scale-105">
@@ -55,15 +56,35 @@ export const Navbar = () => {
         <div className="md:hidden">
             <Sheet>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10"><Menu className="h-6 w-6" /></Button>
+                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                      <Menu className="h-6 w-6" />
+                    </Button>
                 </SheetTrigger>
-                <SheetContent className="bg-stone-950 border-stone-800 text-white">
-                    <div className="flex flex-col gap-6 mt-10">
-                        <Link href="#inicio" className="text-lg uppercase tracking-widest">Início</Link>
-                        <Link href="#ambientes" className="text-lg uppercase tracking-widest">O Spa</Link>
-                        <Link href="#massagens" className="text-lg uppercase tracking-widest">Terapias</Link>
-                        <Button className="w-full bg-white text-black font-bold">Falar no WhatsApp</Button>
+                {/* AQUI ESTÁ A MÁGICA DARK: bg-stone-950 e border-stone-800 */}
+                <SheetContent side="right" className="bg-stone-950 border-l border-stone-800 text-white w-[300px]">
+                    
+                    <div className="flex flex-col gap-8 mt-12 px-2">
+                        {/* Links Grandes para facilitar o toque */}
+                        <Link href="#inicio" className="text-xl font-heading text-stone-300 hover:text-white transition-colors border-b border-white/5 pb-4">
+                          Início
+                        </Link>
+                        <Link href="#ambientes" className="text-xl font-heading text-stone-300 hover:text-white transition-colors border-b border-white/5 pb-4">
+                          O Spa
+                        </Link>
+                        <Link href="#massagens" className="text-xl font-heading text-stone-300 hover:text-white transition-colors border-b border-white/5 pb-4">
+                          Terapias
+                        </Link>
+                        <Link href="#terapeutas" className="text-xl font-heading text-stone-300 hover:text-white transition-colors border-b border-white/5 pb-4">
+                          Terapeutas
+                        </Link>
+                        
+                        <div className="mt-4">
+                          <Button asChild className="w-full btn-platinum-shine rounded-full py-6 uppercase tracking-widest font-bold text-xs">
+                             <Link href={whatsappLink}>Agendar Agora</Link>
+                          </Button>
+                        </div>
                     </div>
+
                 </SheetContent>
             </Sheet>
         </div>

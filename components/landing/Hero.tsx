@@ -43,7 +43,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-stone-300 text-lg md:text-xl max-w-lg mb-10 font-light border-l-2 border-stone-100 pl-6">
-            Um refúgio de tecnologia e bem-estar em Moema. Privacidade absoluta e atendimento de alto padrão.
+            Um refúgio para seu relaxamento e bem-estar em Moema. Privacidade absoluta e atendimento de alto padrão.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6">
