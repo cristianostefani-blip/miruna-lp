@@ -2,23 +2,25 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Sparkles, Activity, ArrowRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+// REMOVIDO O IMPORT ERRADO DO FRAMER MOTION AQUI
 
-// DADOS ATUALIZADOS COM FOTOS
+// DADOS ATUALIZADOS
 const categories = {
   relaxamento: [
     {
       title: "Miruna Signature",
       time: "60min / 90min",
-      desc: "Nossa experiência assinatura. Fusão de toques suaves e óleos aquecidos.",
+      desc: "Nossa experiência assinatura. Fusão de toques suaves e óleos aquecidos para desconexão total da mente.",
       tags: ["Aromaterapia", "Toque Suave"],
       image: "/hands.jpg",
     },
     {
       title: "Terapia Sensorial",
       time: "60min / 90min",
-      desc: "Ritual focado no despertar dos sentidos e reativação da energia vital.",
+      desc: "Ritual focado no despertar dos sentidos e reativação da energia vital do corpo.",
       tags: ["Reconexão", "Energia Vital"],
       image: "/sensorial.jpg" 
     }
@@ -27,14 +29,14 @@ const categories = {
     {
       title: "Deep Tissue",
       time: "50min",
-      desc: "Pressão firme focada na liberação de nódulos de tensão.",
+      desc: "Pressão firme focada na liberação de nódulos de tensão e recuperação muscular profunda.",
       tags: ["Alívio de Dor", "Pós-Treino"],
       image: "/terapeutico.jpg" 
     },
     {
       title: "Shiatsu Executivo",
       time: "45min",
-      desc: "Alinhamento energético através da pressão em pontos meridianos.",
+      desc: "Alinhamento energético através da pressão em pontos meridianos. Ideal para combater o stress corporativo.",
       tags: ["Postura", "Equilíbrio"],
       image: "/lounge-real.jpg" 
     }
@@ -57,21 +59,24 @@ export const Massages = () => {
 
         {/* Sistema de Abas */}
         <Tabs defaultValue="relaxamento" className="w-full max-w-4xl mx-auto relative">
-          <div className="sticky top-20 z-40 py-4 -mx-6 px-6 md:mx-0 md:px-0 transition-all bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg mb-8"></div>
-          <TabsList className="grid w-full grid-cols-2 bg-stone-900 p-1 rounded-full border-stone-800">
-            <TabsTrigger 
-              value="relaxamento" 
-              className="rounded-full data-[state=active]:bg-silver-gradient data-[state=active]:text-black text-stone-400 font-bold tracking-wider uppercase text-xs py-3 transition-all"
-            >
-              Rituais Relaxantes
-            </TabsTrigger>
-            <TabsTrigger 
-              value="terapeutico" 
-              className="rounded-full data-[state=active]:bg-silver-gradient data-[state=active]:text-black text-stone-400 font-bold tracking-wider uppercase text-xs py-3 transition-all"
-            >
-              Terapias Corporais
-            </TabsTrigger>
-          </TabsList>
+          
+          {/* Abas Fixas no Topo ao Scrollar */}
+          <div className="sticky top-20 z-40 py-4 -mx-6 px-6 md:mx-0 md:px-0 transition-all bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg mb-8">
+            <TabsList className="grid w-full grid-cols-2 bg-stone-900 p-1 rounded-full border-stone-800">
+                <TabsTrigger 
+                value="relaxamento" 
+                className="rounded-full data-[state=active]:bg-silver-gradient data-[state=active]:text-black text-stone-400 font-bold tracking-wider uppercase text-[10px] sm:text-xs py-3 transition-all"
+                >
+                Rituais Relaxantes
+                </TabsTrigger>
+                <TabsTrigger 
+                value="terapeutico" 
+                className="rounded-full data-[state=active]:bg-silver-gradient data-[state=active]:text-black text-stone-400 font-bold tracking-wider uppercase text-[10px] sm:text-xs py-3 transition-all"
+                >
+                Terapias Corporais
+                </TabsTrigger>
+            </TabsList>
+          </div>
 
           {/* Conteúdo: Relaxamento */}
           <TabsContent value="relaxamento" className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -93,12 +98,12 @@ export const Massages = () => {
   );
 };
 
-// Sub-componente do Card (Para limpar o código acima)
+// Sub-componente do Card
 const MassageCard = ({ item, icon: Icon }: any) => (
   <Card className="bg-stone-900/40 border-stone-800 hover:border-stone-600 transition-all duration-300 group overflow-hidden">
     <CardContent className="p-0 flex flex-col sm:flex-row h-full">
       
-      {/* FOTO LATERAL (Humanização) */}
+      {/* FOTO LATERAL */}
       <div className="relative w-full sm:w-48 h-48 sm:h-auto shrink-0">
         <Image 
             src={item.image} 
@@ -121,7 +126,7 @@ const MassageCard = ({ item, icon: Icon }: any) => (
             {item.desc}
         </p>
 
-        {/* Tags e Preço */}
+        {/* Tags */}
         <div className="flex flex-wrap items-center gap-3 mt-auto">
             {item.tags.map((tag: string, i: number) => (
                 <span key={i} className="text-[10px] uppercase tracking-wider text-stone-500 flex items-center gap-1">
@@ -130,15 +135,6 @@ const MassageCard = ({ item, icon: Icon }: any) => (
             ))}
         </div>
       </div>
-
-      {/* Botão de Ação 
-      <div className="p-6 sm:pl-0 flex items-center justify-center sm:w-32">
-         <span className="text-white font-bold text-sm">{item.price}</span> (Opcional mostrar preço) 
-         <Button variant="outline" className="rounded-full w-full border-stone-600 text-stone-300 hover:bg-white hover:text-black font-bold text-xs uppercase tracking-widest">
-            Reservar
-         </Button>
-      </div>
-*/}
     </CardContent>
   </Card>
 );
