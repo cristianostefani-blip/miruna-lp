@@ -8,9 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 
 // Duplicamos os itens para ter 6 cards no total
@@ -74,7 +72,6 @@ export const Suites = () => {
                 align: "start" 
               }}
               plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
-              className="w-full max-w-5xl"
           >
           className="w-full max-w-5xl"
             <CarouselContent>

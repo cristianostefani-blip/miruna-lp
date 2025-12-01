@@ -2,10 +2,8 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Sparkles, Activity, ArrowRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-import { image } from "framer-motion/client";
 
 // DADOS ATUALIZADOS COM FOTOS
 const categories = {
@@ -59,7 +57,7 @@ export const Massages = () => {
 
         {/* Sistema de Abas */}
         <Tabs defaultValue="relaxamento" className="w-full max-w-4xl mx-auto relative">
-          <div className="sticky top-80px z-40 py-4 -mx-6 px-6 md:mx-0 md:px-0 transition-all bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg mb-8"></div>
+          <div className="sticky top-20 z-40 py-4 -mx-6 px-6 md:mx-0 md:px-0 transition-all bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg mb-8"></div>
           <TabsList className="grid w-full grid-cols-2 bg-stone-900 p-1 rounded-full border-stone-800">
             <TabsTrigger 
               value="relaxamento" 
