@@ -58,9 +58,9 @@ export const Massages = () => {
         </div>
 
         {/* Sistema de Abas */}
-        <Tabs defaultValue="relaxamento" className="w-full max-w-4xl mx-auto">
-          
-          <TabsList className="grid w-full grid-cols-2 bg-stone-900/50 p-1 rounded-full mb-12 border border-stone-800">
+        <Tabs defaultValue="relaxamento" className="w-full max-w-4xl mx-auto relative">
+          <div className="sticky top-80px z-40 py-4 -mx-6 px-6 md:mx-0 md:px-0 transition-all bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg mb-8"></div>
+          <TabsList className="grid w-full grid-cols-2 bg-stone-900 p-1 rounded-full border-stone-800">
             <TabsTrigger 
               value="relaxamento" 
               className="rounded-full data-[state=active]:bg-silver-gradient data-[state=active]:text-black text-stone-400 font-bold tracking-wider uppercase text-xs py-3 transition-all"

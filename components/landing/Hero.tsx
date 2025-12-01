@@ -13,7 +13,7 @@ export const Hero = () => {
       
       {/* 1. Imagem de Fundo (Capa de Revista) */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-transparent md:from-black md:via-black/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent md:bg-linear-to-r md:from-black md:via-black/40 md:to-transparent z-10" />
         <Image
             src="/hero-bg.jpg"
             alt="Miruna Spa Experience" 
