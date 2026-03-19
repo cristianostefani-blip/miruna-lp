@@ -38,7 +38,7 @@ const categories = {
       time: "45min",
       desc: "Alinhamento energético através da pressão em pontos meridianos. Ideal para combater o stress corporativo.",
       tags: ["Postura", "Equilíbrio"],
-      image: "/lounge-real.jpg" 
+      image: "/shiatsu.jpg" 
     }
   ]
 };
