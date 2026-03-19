@@ -5,7 +5,11 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 export const TeamCTA = () => {
-  const whatsappLink = "https://wa.me/5511958687434";
+  // 1. A Mensagem Estratégica
+  const whatsappMsg = "Olá! Estava no site e gostaria de ver as terapeutas disponíveis hoje.";
+  
+  // 2. O Link Codificado (Garante que espaços e acentos funcionem no celular e no PC)
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <section id="terapeutas" className="relative py-16 overflow-hidden border-t border-white/20">
@@ -16,7 +20,7 @@ export const TeamCTA = () => {
       {/* 2. CAMADA DE BRILHO (Shimmer Animation) */}
       {/* Isso cria um reflexo de luz passando a cada 3 segundos */}
       <div 
-        className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%)] bg-size[length:250%_100%] opacity-50"
+        className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%)] bg-size[250%_100%] opacity-50"
         style={{ animation: "shimmer 3s linear infinite" }}
       />
 
@@ -40,7 +44,8 @@ export const TeamCTA = () => {
 
         {/* Botão Preto (Black Piano) para contraste máximo */}
         <Button asChild className="rounded-full px-10 py-7 bg-black text-white hover:bg-stone-800 hover:scale-105 transition-all shadow-2xl uppercase tracking-widest text-xs font-bold border border-stone-600">
-          <Link href={whatsappLink}>
+          {/* MUDANÇA: target="_blank" para abrir em nova aba e não fechar a Landing Page */}
+          <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
             Ver Terapeutas <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
