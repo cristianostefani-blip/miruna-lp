@@ -11,38 +11,37 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-// Dados dos ambientes
+// Dados reais dos ambientes (Fotos Oficiais)
 const suites = [
   {
-    title: "Suíte Platinum",
-    desc: "Hidromassagem cromoterápica e teto estrelado para momentos inesquecíveis.",
-    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
+    title: "Recepção Premium",
+    desc: "Atendimento discreto e personalizado desde o seu primeiro passo no spa.",
+    img: "/Miruna-8.jpg"
   },
   {
-    title: "Lounge Executivo",
-    desc: "Espaço amplo garantindo total discrição e exclusividade.",
-    img: "/lounge-real.jpg"
+    title: "Lounge Principal",
+    desc: "Sofás em couro e ambiente climatizado aguardam você com total conforto e requinte.",
+    img: "/Miruna-6.jpg"
   },
   {
-    title: "Sala Zen",
-    desc: "Tatame japonês tradicional e iluminação âmbar para relaxamento profundo.",
-    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
-  },
-  // --- REPETIÇÃO PARA EFEITO DE LOOP INFINITO ---
-  {
-    title: "Suíte Presidencial",
-    desc: "Exclusividade total com área de repouso privativa e ducha dupla.",
-    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
+    title: "Espaço de Repouso",
+    desc: "Ambientes intimistas e acolhedores, ideais para relaxar antes da sua terapia.",
+    img: "/Miruna-21.jpg"
   },
   {
-    title: "Lounge Bar",
-    desc: "Ambiente descontraído para o pré ou pós atendimento com carta de drinks.",
-    img: "/lounge-real.jpg"
+    title: "Lounge de Entretenimento",
+    desc: "Espaço amplo e descontraído com TV, frigobar e total privacidade para o seu pós-atendimento.",
+    img: "/Miruna-13.jpg"
   },
   {
-    title: "Sala Terapêutica",
-    desc: "Iluminação focada no relaxamento profundo e aromaterapia.",
-    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
+    title: "Carta de Bebidas",
+    desc: "Rótulos selecionados e destilados premium à sua disposição para elevar a sua experiência.",
+    img: "/Miruna-22.jpg"
+  },
+  {
+    title: "Infraestrutura Completa",
+    desc: "Arquitetura sofisticada e iluminação planejada para uma imersão sensorial completa.",
+    img: "/Miruna-23.jpg"
   }
 ];
 
