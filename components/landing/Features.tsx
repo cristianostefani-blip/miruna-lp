@@ -46,9 +46,9 @@ export const Features = () => {
   
   </div>
 
-  <h3 className="text-white font-bold text-lg mb-2 tracking-wide group-hover:text-silver-gradient transition-colors">
+  <h1 className="text-white font-bold text-lg mb-2 tracking-wide group-hover:text-silver-gradient transition-colors">
     {item.title}
-  </h3>
+  </h1>
   <p className="text-stone-400 text-sm max-w-[150px] leading-relaxed group-hover:text-stone-300 transition-colors">
     {item.description}
   </p>
