@@ -38,13 +38,14 @@ export const Footer = () => {
         {/* Rodapé Base (Direitos + Sua Assinatura) */}
         <div className="border-t border-stone-900 mt-12 pt-8 flex flex-col items-center gap-4 text-center">
           
-          <div className="text-xs opacity-40">
+          {/* CORREÇÃO: Removido opacity-40 e adicionado text-stone-400 sólido */}
+          <div className="text-xs text-stone-400">
             <p>&copy; {new Date().getFullYear()} Miruna Spa. Todos os direitos reservados.</p>
           </div>
 
-          {/* Sua Assinatura Sênior */}
-          <p className="text-[7px] md:text-[9px] text-stone-400 uppercase tracking-[0.4em] font-light hover:text-white transition-colors duration-500">
-            © {new Date().getFullYear()} <span className="text-stone-300 font-bold">C.Stefani</span> - Especialista em Soluções WEB
+          {/* CORREÇÃO: Tamanho aumentado de 7px para 10px e cor para stone-300 */}
+          <p className="text-[10px] md:text-xs text-stone-300 uppercase tracking-[0.3em] font-light hover:text-white transition-colors duration-500">
+            © {new Date().getFullYear()} <span className="text-white font-bold">C.Stefani</span> - Especialista em Soluções WEB
           </p>
           
         </div>
