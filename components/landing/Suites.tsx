@@ -16,37 +16,37 @@ const suites = [
   {
     title: "Fachada Discreta",
     desc: "Localização privilegiada em Moema com entrada discreta, valet e total segurança para sua tranquilidade.",
-    img: "/Miruna-01.jpg"
+    img: "/miruna-01.jpg"
   },
   {
     title: "Recepção Premium",
     desc: "O seu primeiro passo para o relaxamento. Atendimento acolhedor, rápido e personalizado desde a chegada.",
-    img: "/Miruna-05.jpg"
+    img: "/miruna-05.jpg"
   },
   {
     title: "Ambiente Intimista",
     desc: "Corredores e áreas de transição com iluminação suave, projetados para manter sua total privacidade.",
-    img: "/Miruna-02.jpg"
+    img: "/miruna-02.jpg"
   },
   {
     title: "Lounge de Espera",
     desc: "Espaço confortável com poltronas em couro e climatização ideal para o seu momento de desconexão.",
-    img: "/Miruna-04.jpg"
+    img: "/miruna-04.jpg"
   },
   {
     title: "Carta de Destilados",
     desc: "Seleção exclusiva de rótulos premium à sua disposição para elevar a experiência no seu tempo livre.",
-    img: "/Miruna-03.jpg"
+    img: "/miruna-03.jpg"
   },
   {
     title: "Lounge Executivo",
     desc: "Área de descanso ampla e sofisticada, garantindo máximo conforto no seu pré ou pós-atendimento.",
-    img: "/Miruna-06.jpg"
+    img: "/miruna-06.jpg"
   },
   {
     title: "Suítes Climatizadas",
     desc: "Salas privativas com isolamento acústico, higiene rigorosa e infraestrutura completa para seu bem-estar.",
-    img: "/Miruna-07.jpg"
+    img: "/miruna-07.jpg"
   }
 ];
 
