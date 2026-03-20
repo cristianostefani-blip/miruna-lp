@@ -13,7 +13,7 @@ const TeamCTA = dynamic(() => import("@/components/landing/TeamCTA").then((mod) 
 const Footer = dynamic(() => import("@/components/landing/Footer").then((mod) => mod.Footer));
 
 // O arquivo no caminho é minúsculo, mas o componente exportado é Maiúsculo!
-const FloatingWhatsApp = dynamic(() => import("@/components/landing/floating-whatsapp").then((mod) => mod.FloatingWhatsApp), { ssr: false });
+const FloatingWhatsApp = dynamic(() => import("@/components/landing/floating-whatsapp").then((mod) => mod.FloatingWhatsApp));
 
 export default function Home() {
   return (
