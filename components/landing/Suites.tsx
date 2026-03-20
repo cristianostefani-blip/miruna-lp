@@ -59,13 +59,13 @@ export const Suites = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h1 className="font-heading text-5xl md:text-6xl text-white mb-4">
+          <h2 className="font-heading text-5xl md:text-6xl text-white mb-4">
             O <span className="font-serif italic text-silver-gradient">Spa</span>
-          </h1>
-          
-          <h2 className="text-stone-400 text-sm font-bold tracking-[0.3em] uppercase">
-            Conheça nossos ambientes
           </h2>
+          
+          <h3 className="text-stone-400 text-sm font-bold tracking-[0.3em] uppercase">
+            Conheça nossos ambientes
+          </h3>
         </div>
 
         {/* CARROSSEL */}

@@ -43,7 +43,7 @@ export const Footer = () => {
           </div>
 
           {/* Sua Assinatura Sênior */}
-          <p className="text-[7px] md:text-[9px] text-stone-500 uppercase tracking-[0.4em] font-light hover:text-white transition-colors duration-500">
+          <p className="text-[7px] md:text-[9px] text-stone-400 uppercase tracking-[0.4em] font-light hover:text-white transition-colors duration-500">
             © {new Date().getFullYear()} <span className="text-stone-300 font-bold">C.Stefani</span> - Especialista em Soluções WEB
           </p>
           

@@ -129,7 +129,7 @@ const MassageCard = ({ item, icon: Icon }: any) => (
         {/* Tags */}
         <div className="flex flex-wrap items-center gap-3 mt-auto">
             {item.tags.map((tag: string, i: number) => (
-                <span key={i} className="text-[10px] uppercase tracking-wider text-stone-500 flex items-center gap-1">
+                <span key={i} className="text-[10px] uppercase tracking-wider text-stone-400 flex items-center gap-1">
                     <CheckCircle2 className="h-3 w-3 text-stone-600" /> {tag}
                 </span>
             ))}

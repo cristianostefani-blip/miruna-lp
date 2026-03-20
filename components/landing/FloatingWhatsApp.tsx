@@ -34,7 +34,12 @@ export const FloatingWhatsApp = () => {
             size="icon"
             className="h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl border-2 border-white/10"
           >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={whatsappLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Falar conosco pelo WhatsApp" // <-- CORREÇÃO LIGHTHOUSE AQUI
+            >
               <MessageCircle className="h-7 w-7" />
             </a>
           </Button>

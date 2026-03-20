@@ -66,7 +66,7 @@ export const AgeGate = () => {
               <Button 
                 variant="ghost" 
                 onClick={handleReject}
-                className="text-stone-500 hover:text-stone-300 text-xs"
+                className="text-stone-400 hover:text-stone-300 text-xs"
               >
                 Não, sair do site
               </Button>
