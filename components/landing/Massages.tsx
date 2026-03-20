@@ -2,10 +2,9 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Sparkles, Activity, ArrowRight, CheckCircle2 } from "lucide-react";
+// Imports inúteis removidos (Button, ArrowRight)
+import { Sparkles, Activity, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-// REMOVIDO O IMPORT ERRADO DO FRAMER MOTION AQUI
 
 // DADOS ATUALIZADOS
 const categories = {
@@ -49,12 +48,15 @@ export const Massages = () => {
       <div className="container mx-auto px-6">
         
         <div className="text-center mb-16">
-          <h2 className="text-stone-400 text-xs font-bold tracking-[0.3em] uppercase mb-3">
+          {/* CORREÇÃO LIGHTHOUSE: Mudou de H2 para span (porque é só um detalhe visual acima do título) */}
+          <span className="block text-stone-400 text-xs font-bold tracking-[0.3em] uppercase mb-3">
             Nossas Experiências
-          </h2>
-          <h3 className="font-heading text-4xl md:text-5xl text-white">
+          </span>
+          
+          {/* CORREÇÃO LIGHTHOUSE: Mudou de H3 para H2 (Título principal da seção) */}
+          <h2 className="font-heading text-4xl md:text-5xl text-white">
             Menu de <span className="text-silver-gradient font-serif italic">Terapias</span>
-          </h3>
+          </h2>
         </div>
 
         {/* Sistema de Abas */}
@@ -116,7 +118,8 @@ const MassageCard = ({ item, icon: Icon }: any) => (
       {/* Textos */}
       <div className="flex-1 p-6 flex flex-col justify-center">
         <div className="flex justify-between items-start mb-2">
-            <h4 className="text-xl text-white font-medium">{item.title}</h4>
+            {/* CORREÇÃO LIGHTHOUSE: Mudou de H4 para H3 (Para seguir a escada abaixo do H2 principal) */}
+            <h3 className="text-xl text-white font-medium">{item.title}</h3>
             <span className="text-[10px] font-bold text-stone-400 border border-stone-700 px-2 py-1 rounded bg-black/50">
                 {item.time}
             </span>

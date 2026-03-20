@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link"; 
 import Image from "next/image"; 
 import { Button } from "@/components/ui/button"; 
-import { MessageCircle, Menu } from "lucide-react"; 
+import { Menu } from "lucide-react"; // MessageCircle removido!
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"; 
 
 export const Navbar = () => {
@@ -42,25 +42,25 @@ export const Navbar = () => {
           <Link href="#massagens" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">Terapias</Link>
           <Link href="#terapeutas" className="text-stone-300 hover:text-white transition-colors text-xs uppercase tracking-[0.2em] font-medium">Terapeutas</Link>
           
-{/* BOTÃO PLATINUM COM "LUZ ANDANDO" */}
-<Button asChild className="rounded-full px-8 py-6 uppercase tracking-widest text-xs border-2 border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] btn-platinum-shine hover:scale-105">
-  <Link href={whatsappLink}>
-    <span className="relative flex items-center gap-2 z-10">
-        Agendar
-    </span>
-  </Link>
-</Button>
+          {/* BOTÃO PLATINUM COM "LUZ ANDANDO" */}
+          <Button asChild className="rounded-full px-8 py-6 uppercase tracking-widest text-xs border-2 border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] btn-platinum-shine hover:scale-105">
+            <Link href={whatsappLink}>
+              <span className="relative flex items-center gap-2 z-10">
+                  Agendar
+              </span>
+            </Link>
+          </Button>
         </div>
 
         {/* Mobile Menu */}
         <div className="md:hidden">
             <Sheet>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                    {/* CORREÇÃO LIGHTHOUSE: aria-label adicionado aqui */}
+                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" aria-label="Abrir menu de navegação">
                       <Menu className="h-6 w-6" />
                     </Button>
                 </SheetTrigger>
-                {/* AQUI ESTÁ A MÁGICA DARK: bg-stone-950 e border-stone-800 */}
                 <SheetContent side="right" className="bg-stone-950 border-l border-stone-800 text-white w-[300px]">
                     
                     <div className="flex flex-col gap-8 mt-12 px-2">
