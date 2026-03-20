@@ -11,41 +11,41 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-// Dados reais dos ambientes: A Jornada do Cliente (7 Imagens)
+// Dados reais dos ambientes: A Jornada do Cliente (7 Imagens - Mapeamento Revisado)
 const suites = [
   {
     title: "Fachada Discreta",
-    desc: "Localização privilegiada em Moema com entrada discreta, valet e total segurança para sua tranquilidade.",
+    desc: "Localização privilegiada em Moema com entrada reservada e valet park para garantir sua total privacidade e segurança.",
     img: "/spa-01.jpg"
   },
   {
-    title: "Recepção Premium",
-    desc: "O seu primeiro passo para o relaxamento. Atendimento acolhedor, rápido e personalizado desde a chegada.",
-    img: "/spa-05.jpg"
-  },
-  {
-    title: "Ambiente Intimista",
-    desc: "Corredores e áreas de transição com iluminação suave, projetados para manter sua total privacidade.",
+    title: "Recepção Platinum",
+    desc: "Um atendimento acolhedor e ágil em um ambiente sofisticado, desenhado para iniciar sua desconexão do mundo exterior.",
     img: "/spa-02.jpg"
   },
   {
-    title: "Lounge de Espera",
-    desc: "Espaço confortável com poltronas em couro e climatização ideal para o seu momento de desconexão.",
-    img: "/spa-04.jpg"
-  },
-  {
-    title: "Carta de Destilados",
-    desc: "Seleção exclusiva de rótulos premium à sua disposição para elevar a experiência no seu tempo livre.",
+    title: "Corredores Exclusivos",
+    desc: "Arquitetura moderna e iluminação sutil guiam você por caminhos reservados, mantendo o ambiente íntimo e relaxante.",
     img: "/spa-03.jpg"
   },
   {
-    title: "Lounge Executivo",
-    desc: "Área de descanso ampla e sofisticada, garantindo máximo conforto no seu pré ou pós-atendimento.",
+    title: "Lounge de Estar",
+    desc: "Poltronas confortáveis e climatização ideal. O espaço perfeito para relaxar e aguardar o início da sua terapia exclusiva.",
+    img: "/spa-04.jpg"
+  },
+  {
+    title: "Carta Premium",
+    desc: "Seleção exclusiva de drinks, destilados e bebidas para complementar sua experiência de bem-estar no spa.",
+    img: "/spa-05.jpg"
+  },
+  {
+    title: "Espaço de Descanso",
+    desc: "Um ambiente ainda mais privativo, com TV e total tranquilidade, ideal para o seu pré ou pós-atendimento.",
     img: "/spa-06.jpg"
   },
   {
     title: "Suítes Climatizadas",
-    desc: "Salas privativas com isolamento acústico, higiene rigorosa e infraestrutura completa para seu bem-estar.",
+    desc: "Salas de atendimento equipadas com o máximo de higiene, conforto acústico e iluminação planejada para sua imersão sensorial.",
     img: "/spa-07.jpg"
   }
 ];
