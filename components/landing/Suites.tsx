@@ -11,37 +11,42 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-// Dados reais dos ambientes (Fotos Oficiais)
+// Dados reais dos ambientes: A Jornada do Cliente (7 Imagens)
 const suites = [
   {
+    title: "Fachada Discreta",
+    desc: "Localização privilegiada em Moema com entrada discreta, valet e total segurança para sua tranquilidade.",
+    img: "/Miruna-01.jpg"
+  },
+  {
     title: "Recepção Premium",
-    desc: "Atendimento discreto e personalizado desde o seu primeiro passo no spa.",
-    img: "/Miruna-8.jpg"
+    desc: "O seu primeiro passo para o relaxamento. Atendimento acolhedor, rápido e personalizado desde a chegada.",
+    img: "/Miruna-05.jpg"
   },
   {
-    title: "Lounge Principal",
-    desc: "Sofás em couro e ambiente climatizado aguardam você com total conforto e requinte.",
-    img: "/Miruna-6.jpg"
+    title: "Ambiente Intimista",
+    desc: "Corredores e áreas de transição com iluminação suave, projetados para manter sua total privacidade.",
+    img: "/Miruna-02.jpg"
   },
   {
-    title: "Espaço de Repouso",
-    desc: "Ambientes intimistas e acolhedores, ideais para relaxar antes da sua terapia.",
-    img: "/Miruna-21.jpg"
+    title: "Lounge de Espera",
+    desc: "Espaço confortável com poltronas em couro e climatização ideal para o seu momento de desconexão.",
+    img: "/Miruna-04.jpg"
   },
   {
-    title: "Lounge de Entretenimento",
-    desc: "Espaço amplo e descontraído com TV, frigobar e total privacidade para o seu pós-atendimento.",
-    img: "/Miruna-13.jpg"
+    title: "Carta de Destilados",
+    desc: "Seleção exclusiva de rótulos premium à sua disposição para elevar a experiência no seu tempo livre.",
+    img: "/Miruna-03.jpg"
   },
   {
-    title: "Carta de Bebidas",
-    desc: "Rótulos selecionados e destilados premium à sua disposição para elevar a sua experiência.",
-    img: "/Miruna-22.jpg"
+    title: "Lounge Executivo",
+    desc: "Área de descanso ampla e sofisticada, garantindo máximo conforto no seu pré ou pós-atendimento.",
+    img: "/Miruna-06.jpg"
   },
   {
-    title: "Infraestrutura Completa",
-    desc: "Arquitetura sofisticada e iluminação planejada para uma imersão sensorial completa.",
-    img: "/Miruna-23.jpg"
+    title: "Suítes Climatizadas",
+    desc: "Salas privativas com isolamento acústico, higiene rigorosa e infraestrutura completa para seu bem-estar.",
+    img: "/Miruna-07.jpg"
   }
 ];
 
