@@ -11,41 +11,41 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-// Dados reais dos ambientes: A Jornada do Cliente (7 Imagens - Mapeamento Revisado)
+// Dados reais dos ambientes: A Jornada do Cliente (7 Imagens - MAPEAMENTO 100% PRECISO)
 const suites = [
   {
     title: "Fachada Discreta",
-    desc: "Localização privilegiada em Moema com entrada reservada e valet park para garantir sua total privacidade e segurança.",
+    desc: "Localização privilegiada em Moema com entrada reservada e estacionamento para garantir sua total privacidade e comodidade.",
     img: "/spa-01.jpg"
   },
   {
-    title: "Recepção Platinum",
-    desc: "Um atendimento acolhedor e ágil em um ambiente sofisticado, desenhado para iniciar sua desconexão do mundo exterior.",
-    img: "/spa-02.jpg"
-  },
-  {
-    title: "Corredores Exclusivos",
-    desc: "Arquitetura moderna e iluminação sutil guiam você por caminhos reservados, mantendo o ambiente íntimo e relaxante.",
-    img: "/spa-03.jpg"
-  },
-  {
-    title: "Lounge de Estar",
-    desc: "Poltronas confortáveis e climatização ideal. O espaço perfeito para relaxar e aguardar o início da sua terapia exclusiva.",
-    img: "/spa-04.jpg"
-  },
-  {
-    title: "Carta Premium",
-    desc: "Seleção exclusiva de drinks, destilados e bebidas para complementar sua experiência de bem-estar no spa.",
+    title: "Recepção Premium",
+    desc: "Atendimento acolhedor e discreto em um ambiente sofisticado, desenhado para iniciar sua desconexão do mundo exterior.",
     img: "/spa-05.jpg"
   },
   {
-    title: "Espaço de Descanso",
-    desc: "Um ambiente ainda mais privativo, com TV e total tranquilidade, ideal para o seu pré ou pós-atendimento.",
-    img: "/spa-06.jpg"
+    title: "Lounge & Bar",
+    desc: "Poltronas confortáveis em couro e uma seleção de bebidas à sua disposição. O espaço perfeito para aguardar sua terapia.",
+    img: "/spa-02.jpg"
   },
   {
-    title: "Suítes Climatizadas",
-    desc: "Salas de atendimento equipadas com o máximo de higiene, conforto acústico e iluminação planejada para sua imersão sensorial.",
+    title: "Sala Principal",
+    desc: "Um ambiente privativo com climatização ideal, TV e frigobar, perfeito para o seu momento de pré ou pós-atendimento.",
+    img: "/spa-04.jpg"
+  },
+  {
+    title: "Suíte Platinum",
+    desc: "Salas de atendimento equipadas com o máximo de conforto, higiene rigorosa e iluminação planejada para imersão sensorial.",
+    img: "/spa-03.jpg"
+  },
+  {
+    title: "Suíte Gold", 
+    desc: "Amplo espaço privativo com espelho decorativo e design requintado, garantindo uma experiência inesquecível de relaxamento.",
+    img: "/spa-06.jpg" // A suíte que o cliente fez questão!
+  },
+  {
+    title: "Acesso Exclusivo",
+    desc: "Arquitetura moderna e corredores com acabamento premium que guiam você com total discrição aos nossos ambientes.",
     img: "/spa-07.jpg"
   }
 ];
