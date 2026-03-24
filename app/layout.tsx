@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script"; // <-- IMPORT SENIOR AQUI
 import "./globals.css";
 import clsx from "clsx";
 
@@ -16,7 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Miruna Massagens | Spa Premium em Moema",
   description: "Conheça o Miruna. Um refúgio de bem-estar e terapias manuais em Moema. Atendimento exclusivo, ambiente climatizado e suítes privativas.",
-  // AQUI ESTÁ A MÁGICA DO FAVICON COMPLETO:
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -36,13 +36,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // "scroll-smooth" AQUI 👇
     <html lang="pt-BR" className="scroll-smooth">
       <body className={clsx(
-        "min-h-screen bg-stone-950 font-sans antialiased", // Garanta que o fundo base seja escuro
+        "min-h-screen bg-stone-950 font-sans antialiased", 
         geistSans.variable,
         geistMono.variable
       )}>
+        
+        {/* GOOGLE ANALYTICS OTIMIZADO (Não afeta o Lighthouse!) */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-RDP05FJ9S9`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-RDP05FJ9S9');
+            `,
+          }}
+        />
+        {/* FIM DO ANALYTICS */}
+
         {children}
       </body>
     </html>
