@@ -43,9 +43,20 @@ export const Footer = () => {
             <p>&copy; {new Date().getFullYear()} Miruna Spa. Todos os direitos reservados.</p>
           </div>
 
-          {/* CORREÇÃO: Tamanho aumentado de 7px para 10px e cor para stone-300 */}
-          <p className="text-[10px] md:text-xs text-stone-300 uppercase tracking-[0.3em] font-light hover:text-white transition-colors duration-500">
-            © {new Date().getFullYear()} <span className="text-white font-bold">C.Stefani</span> - Especialista em Soluções WEB
+          {/* Sua Assinatura Sênior (Agora com Link!) */}
+          <p className="text-[10px] md:text-xs text-stone-300 uppercase tracking-[0.3em] font-light transition-colors duration-500">
+            © {new Date().getFullYear()}{" "}
+            <a 
+              href="https://cstefani-desenvolvedor.vercel.app" // <--- COLOQUE O SEU LINK AQUI
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Acessar o site do desenvolvedor C.Stefani"
+              className="hover:text-white transition-colors duration-300 group"
+            >
+              <span className="text-white font-bold group-hover:underline underline-offset-4">
+                C.Stefani
+              </span> - Especialista em Soluções WEB
+            </a>
           </p>
           
         </div>
