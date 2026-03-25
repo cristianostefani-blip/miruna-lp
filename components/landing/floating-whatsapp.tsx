@@ -15,7 +15,10 @@ export const FloatingWhatsApp = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const whatsappLink = "https://wa.me/5511958687434";
+  const whatsappMsg = "Olá! gostaria de mais informações sobre as massagens.";
+  
+  // 2. O Link Codificado (Garante que espaços e acentos funcionem no celular e no PC)
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <AnimatePresence>
