@@ -18,7 +18,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const whatsappLink = "https://wa.me/5511958687434";
+const whatsappMsg = "Olá! Estava navegando no site e gostaria de mais informações.";
+const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3" : "bg-transparent py-6"}`}>

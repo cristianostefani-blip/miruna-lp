@@ -6,10 +6,8 @@ import Link from "next/link";
 
 export const TeamCTA = () => {
   // 1. A Mensagem Estratégica
-  const whatsappMsg = "Olá! Estava no site e gostaria de ver as terapeutas disponíveis hoje.";
-  
-  // 2. O Link Codificado (Garante que espaços e acentos funcionem no celular e no PC)
-  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+const whatsappMsg = "Olá! Gostaria de ver as terapeutas disponíveis hoje.";
+const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <section id="terapeutas" className="relative py-16 overflow-hidden border-t border-white/20">

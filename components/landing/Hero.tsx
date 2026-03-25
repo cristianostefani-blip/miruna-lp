@@ -6,10 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const Hero = () => {
-  const whatsappMsg = "Olá! gostaria de mais informações sobre as massagens.";
-  
-  // 2. O Link Codificado (Garante que espaços e acentos funcionem no celular e no PC)
-  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+const whatsappMsg = "Oi! Gostaria de informações para agendar uma massagem.";
+const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
