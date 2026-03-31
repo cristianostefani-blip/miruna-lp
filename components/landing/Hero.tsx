@@ -4,10 +4,25 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+// 1. Importamos as ferramentas necessárias para ler a URL
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export const Hero = () => {
-const whatsappMsg = "Oi! Gostaria de informações para agendar uma massagem.";
-const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+// 2. Renomeamos o seu componente principal para HeroContent (Ele fará o trabalho interno)
+const HeroContent = () => {
+  // 3. Lógica de captura da UTM
+  const searchParams = useSearchParams();
+  const origemParam = searchParams.get('utm_source') || searchParams.get('origem');
+  
+  // Se veio do Google, cria a tag. Se não, fica vazio.
+  const tagOrigem = (origemParam === 'google' || origemParam === 'google_ads') 
+    ? ' [Ref: Google]' 
+    : '';
+
+  // 4. Montagem da mensagem final
+  const baseMsg = "Oi! Gostaria de informações para agendar uma massagem.";
+  const whatsappMsg = `${baseMsg}${tagOrigem}`;
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
@@ -89,5 +104,18 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
 
       <div className="absolute bottom-0 w-full h-1 bg-silver-gradient" />
     </section>
+  );
+};
+
+// 5. O Componente Hero que será importado pelas suas páginas
+// O Suspense garante que a página não quebre enquanto tenta ler os parâmetros da URL
+export const Hero = () => {
+  return (
+    <Suspense fallback={
+      // Um fallback simples (apenas uma tela preta) enquanto a URL é lida em milissegundos
+      <section className="h-screen min-h-[600px] bg-black" />
+    }>
+      <HeroContent />
+    </Suspense>
   );
 };

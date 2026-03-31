@@ -2,10 +2,13 @@
 
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+// 1. Importamos o useSearchParams e o Suspense
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-export const FloatingWhatsApp = () => {
+// 2. Renomeamos seu componente original para tratar a lógica
+const FloatingWhatsAppContent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -15,8 +18,18 @@ export const FloatingWhatsApp = () => {
     return () => clearTimeout(timer);
   }, []);
 
-const whatsappMsg = "Oi! Gostaria de informações sobre as massagens.";
-const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+  // 3. Lógica de captura da UTM
+  const searchParams = useSearchParams();
+  const origemParam = searchParams.get('utm_source') || searchParams.get('origem');
+  
+  const tagOrigem = (origemParam === 'google' || origemParam === 'google_ads') 
+    ? ' [Ref: Google]' 
+    : '';
+
+  // 4. Montagem da mensagem final
+  const baseMsg = "Oi! Gostaria de informações sobre as massagens.";
+  const whatsappMsg = `${baseMsg}${tagOrigem}`;
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <AnimatePresence>
@@ -47,5 +60,15 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
         </motion.div>
       )}
     </AnimatePresence>
+  );
+};
+
+// 5. O Componente exportado com o Suspense
+export const FloatingWhatsApp = () => {
+  return (
+    // Como é flutuante, o fallback null é perfeito para não quebrar o layout
+    <Suspense fallback={null}>
+      <FloatingWhatsAppContent />
+    </Suspense>
   );
 };

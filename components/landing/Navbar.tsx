@@ -4,10 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link"; 
 import Image from "next/image"; 
 import { Button } from "@/components/ui/button"; 
-import { Menu } from "lucide-react"; // MessageCircle removido!
+import { Menu } from "lucide-react"; 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"; 
+// 1. Importamos o useSearchParams e o Suspense
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export const Navbar = () => {
+// 2. Trocamos o nome para NavbarContent
+const NavbarContent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,8 +22,18 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-const whatsappMsg = "Olá! Estava navegando no site e gostaria de mais informações.";
-const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+  // 3. Captura inteligente da UTM
+  const searchParams = useSearchParams();
+  const origemParam = searchParams.get('utm_source') || searchParams.get('origem');
+  
+  const tagOrigem = (origemParam === 'google' || origemParam === 'google_ads') 
+    ? ' [Ref: Google]' 
+    : '';
+
+  // 4. Montagem da mensagem final
+  const baseMsg = "Olá! Estava navegando no site e gostaria de mais informações.";
+  const whatsappMsg = `${baseMsg}${tagOrigem}`;
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3" : "bg-transparent py-6"}`}>
@@ -81,7 +95,7 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
                         
                         <div className="mt-4">
                           <Button asChild className="w-full btn-platinum-shine rounded-full py-6 uppercase tracking-widest font-bold text-xs">
-                             <Link href={whatsappLink}>Agendar Agora</Link>
+                              <Link href={whatsappLink}>Agendar Agora</Link>
                           </Button>
                         </div>
                     </div>
@@ -91,5 +105,17 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
         </div>
       </div>
     </nav>
+  );
+};
+
+// 5. O Componente Exportado com Suspense
+export const Navbar = () => {
+  return (
+    <Suspense fallback={
+      // Fallback transparente com a altura aproximada do menu para evitar salto de layout
+      <nav className="fixed w-full z-50 bg-transparent py-6 h-24" />
+    }>
+      <NavbarContent />
+    </Suspense>
   );
 };

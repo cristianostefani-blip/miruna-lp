@@ -3,11 +3,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+// 1. Importamos as funções de leitura de URL e o Suspense
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export const TeamCTA = () => {
-  // 1. A Mensagem Estratégica
-const whatsappMsg = "Olá! Gostaria de ver as terapeutas disponíveis hoje.";
-const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
+// 2. Criamos o componente interno que faz o processamento
+const TeamCTAContent = () => {
+  // 3. Lógica de captura da UTM
+  const searchParams = useSearchParams();
+  const origemParam = searchParams.get('utm_source') || searchParams.get('origem');
+  
+  // Se a origem for do Google, adiciona a tag
+  const tagOrigem = (origemParam === 'google' || origemParam === 'google_ads') 
+    ? ' [Ref: Google]' 
+    : '';
+
+  // 4. A Mensagem Estratégica Dinâmica
+  const baseMsg = "Olá! Gostaria de ver as terapeutas disponíveis hoje.";
+  const whatsappMsg = `${baseMsg}${tagOrigem}`;
+  const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <section id="terapeutas" className="relative py-16 overflow-hidden border-t border-white/20">
@@ -16,7 +30,6 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
       <div className="absolute inset-0 bg-silver-gradient" />
       
       {/* 2. CAMADA DE BRILHO (Shimmer Animation) */}
-      {/* Isso cria um reflexo de luz passando a cada 3 segundos */}
       <div 
         className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%)] bg-size[250%_100%] opacity-50"
         style={{ animation: "shimmer 3s linear infinite" }}
@@ -42,7 +55,6 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
 
         {/* Botão Preto (Black Piano) para contraste máximo */}
         <Button asChild className="rounded-full px-10 py-7 bg-black text-white hover:bg-stone-800 hover:scale-105 transition-all shadow-2xl uppercase tracking-widest text-xs font-bold border border-stone-600">
-          {/* MUDANÇA: target="_blank" para abrir em nova aba e não fechar a Landing Page */}
           <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
             Ver Terapeutas <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
@@ -50,5 +62,17 @@ const whatsappLink = `https://wa.me/5511958687434?text=${encodeURIComponent(what
 
       </div>
     </section>
+  );
+};
+
+// 5. O Componente Exportado com Suspense
+export const TeamCTA = () => {
+  return (
+    <Suspense fallback={
+      // Fallback que mantém a altura e o fundo prata para evitar pulos de layout
+      <section className="relative py-16 min-h-[200px] bg-stone-200 border-t border-white/20" />
+    }>
+      <TeamCTAContent />
+    </Suspense>
   );
 };
