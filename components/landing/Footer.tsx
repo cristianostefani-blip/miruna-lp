@@ -45,7 +45,7 @@ export const Footer = () => {
 
           {/* Sua Assinatura Sênior (Agora com Link!) */}
           <p className="text-[10px] md:text-xs text-stone-300 uppercase tracking-[0.3em] font-light transition-colors duration-500">
-            © {new Date().getFullYear()}{" "}
+
             <a 
               href="https://cstefani-desenvolvedor.vercel.app" // <--- COLOQUE O SEU LINK AQUI
               target="_blank" 
