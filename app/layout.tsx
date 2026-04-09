@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // <-- IMPORT SENIOR AQUI
+import { GoogleTagManager } from '@next/third-parties/google'; // <-- IMPORT NATIVO AQUI
 import "./globals.css";
 import clsx from "clsx";
 
@@ -37,28 +37,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
+      {/* O COMPONENTE ENTRA AQUI, FORA DO BODY */}
+      <GoogleTagManager gtmId="GTM-P2KVBMLS" />
+      
       <body className={clsx(
         "min-h-screen bg-stone-950 font-sans antialiased", 
         geistSans.variable,
         geistMono.variable
       )}>
-        
-{/* GOOGLE TAG MANAGER */}
-        <Script
-          id="google-tag-manager"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s),
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-P2KVBMLS');
-            `,
-          }}
-        />
-        {/* FIM DO TAGMANAGER */}
-
         {children}
       </body>
     </html>
