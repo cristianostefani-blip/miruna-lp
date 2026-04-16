@@ -1,52 +1,159 @@
-import { MapPin, Clock } from "lucide-react"; // Removemos o Instagram
+"use client";
 
-export const Footer = () => {
-  return (
-    <footer className="bg-stone-950 border-t border-stone-900 pt-16 pb-8 text-stone-400">
-      <div className="container mx-auto px-6">
+import { useState, useEffect } from "react";
+import { Montserrat } from "next/font/google";
+import Image from "next/image";
+import { MapPin, Clock, ChevronDown } from "lucide-react";
+
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500"] });
+
+type Schedule = {
+  day: number;
+  label: string;
+  open: string;
+  close: string;
+};
+
+const businessHours: Schedule[] = [
+  { day: 0, label: "Domingo", open: "Fechado", close: "Fechado" },
+  { day: 1, label: "Segunda-feira", open: "11:00", close: "22:00" },
+  { day: 2, label: "Terça-feira", open: "11:00", close: "22:00" },
+  { day: 3, label: "Quarta-feira", open: "11:00", close: "22:00" },
+  { day: 4, label: "Quinta-feira", open: "11:00", close: "22:00" },
+  { day: 5, label: "Sexta-feira", open: "11:00", close: "23:00" },
+  { day: 6, label: "Sábado", open: "11:00", close: "23:00" },
+];
+
+
+export function Footer() {
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentDayInfo, setCurrentDayInfo] = useState<Schedule>(businessHours[0]);
+  const [showAllHours, setShowAllHours] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    
+    const checkStatus = () => {
+      const now = new Date();
+      const currentDay = now.getDay();
+      
+      const todaySchedule = businessHours.find((h) => h.day === currentDay) as Schedule || businessHours[0];
+      
+      setCurrentDayInfo(todaySchedule);
+
+      if (todaySchedule.open === "Fechado") {
+        setIsOpen(false);
+        return;
+      }
+
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const [openH, openM] = todaySchedule.open.split(":").map(Number);
+      const [closeH, closeM] = todaySchedule.close.split(":").map(Number);
+      
+      const openMinutes = openH * 60 + openM;
+      const closeMinutes = closeH * 60 + closeM;
+
+      setIsOpen(currentMinutes >= openMinutes && currentMinutes < closeMinutes);
+    };
+
+    checkStatus();
+    const interval = setInterval(checkStatus, 60000); // Atualiza a cada 1 minuto
+    return () => clearInterval(interval);
+  }, []);
+
+
+return (
+    <footer className={`bg-[#050403] border-t border-white/5 pt-16 pb-8 px-6 ${montserrat.className}`}>
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         
-        {/* MUDANÇA: Passou de grid-cols-3 para grid-cols-2 e adicionamos max-w-4xl para centralizar o bloco */}
-        <div className="grid md:grid-cols-2 gap-12 text-center md:text-left max-w-4xl mx-auto">
+        {/* Logo Centralizada */}
+        <div className="mb-10 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <Image 
+            src="/enjoy-logo.png" 
+            alt="Enjoy Spa Logo" 
+            width={160} 
+            height={160} 
+            className="rounded-lg object-cover"
+          />
+        </div>
+
+        {/* Informações Fiscais / Localização / Horários */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-2xl mb-16 text-center md:text-left">
           
-          {/* Coluna 1: Sobre */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-white text-xl font-serif mb-4">Miruna Platinum</h3>
-            <p className="text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-              Um conceito elevado de relaxamento em Moema. 
-              Ambiente climatizado, ducha privativa e atendimento de alto padrão.
-            </p>
+          {/* BLOCO 1: LOCALIZAÇÃO */}
+          <div className="flex flex-col items-center md:items-start space-y-3">
+            <h4 className="text-[#d4af37] text-sm font-medium tracking-widest uppercase mb-1">Localização</h4>
+            <div className="flex items-start gap-2 text-[#a89f91] font-light text-sm">
+              <MapPin className="w-4 h-4 shrink-0 text-[#d4af37]/70 mt-1" />
+              <span className="leading-relaxed">Rua Condessa do Pinhal 279, Campo Belo<br/>São Paulo - SP, 04610-060</span>
+            </div>
           </div>
 
-          {/* Coluna 2: Localização (Dados Reais) */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-white text-sm uppercase tracking-widest mb-6 font-bold">Localização</h3>
-            <div className="flex items-start gap-3 mb-4">
-              <MapPin className="h-5 w-5 text-white shrink-0 mt-1" />
-              <p className="text-sm text-left">
-                Av. Miruna, 644<br/>
-                Moema, São Paulo - SP
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-white shrink-0" />
-              <p className="text-sm">Aberto hoje a partir das 11:00</p>
-            </div>
+          {/* BLOCO 2: ATENDIMENTO INTELIGENTE */}
+          <div className="flex flex-col items-center md:items-start space-y-3">
+            <h4 className="text-[#d4af37] text-sm font-medium tracking-widest uppercase mb-1">Atendimento</h4>
+            
+            {mounted ? (
+              <div className="flex flex-col items-center md:items-start w-full">
+                
+                {/* Status Hoje */}
+                <button 
+                  onClick={() => setShowAllHours(!showAllHours)}
+                  className="flex items-start gap-2 group outline-none"
+                >
+                  <Clock className="w-4 h-4 shrink-0 text-[#d4af37]/70 mt-[2px]" />
+                  <div className="flex flex-col items-start text-left">
+                    
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className={`w-2 h-2 rounded-full ${isOpen ? "bg-green-500 animate-pulse" : "bg-red-500"}`} />
+                      <span className={`text-xs font-medium uppercase tracking-wider ${isOpen ? "text-green-500" : "text-red-500"}`}>
+                        {isOpen ? "Aberto Agora" : "Fechado Agora"}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#a89f91] font-light text-sm group-hover:text-white transition-colors">
+                      <span>
+                        {currentDayInfo.label} • {currentDayInfo.open === "Fechado" ? "Fechado" : `das ${currentDayInfo.open} às ${currentDayInfo.close}`}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-[#d4af37]/50 transition-transform duration-300 ${showAllHours ? "rotate-180" : ""}`} />
+                    </div>
+                  </div>
+                </button>
+
+                {/* Dropdown com a grade */}
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out w-full ${showAllHours ? "max-h-[300px] mt-4 opacity-100" : "max-h-0 opacity-0"}`}
+                >
+                  <div className="flex flex-col gap-2 p-4 bg-[#12100d] rounded-xl border border-white/5 text-xs text-[#a89f91] font-light w-full max-w-[280px]">
+                    {businessHours.map((schedule) => (
+                      <div key={schedule.day} className={`flex justify-between ${schedule.day === new Date().getDay() ? "text-[#d4af37] font-medium" : ""}`}>
+                        <span>{schedule.label}</span>
+                        <span>{schedule.open === "Fechado" ? "Fechado" : `${schedule.open} - ${schedule.close}`}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            ) : (
+              <div className="w-32 h-8 bg-white/5 animate-pulse rounded" />
+            )}
           </div>
 
         </div>
 
-        {/* Rodapé Base (Direitos + Sua Assinatura) */}
-        <div className="border-t border-stone-900 mt-12 pt-8 flex flex-col items-center gap-4 text-center">
-          
-          {/* CORREÇÃO: Removido opacity-40 e adicionado text-stone-400 sólido */}
-          <div className="text-xs text-stone-400">
-            <p>&copy; {new Date().getFullYear()} Miruna Spa. Todos os direitos reservados.</p>
-          </div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
 
-          {/* Sua Assinatura Sênior (Agora com Link!) */}
+        <div className="flex flex-col items-center space-y-4 text-center w-full">
+          
+          <p className="text-[10px] md:text-xs text-[#a89f91] font-light tracking-wider">
+            © {new Date().getFullYear()} Enjoy Spa. Todos os direitos reservados.
+          </p>
+          
           <p className="text-[10px] md:text-xs text-[#a89f91] tracking-[0.3em] font-light transition-colors duration-500">
             <a 
-              href="https://cstefani-desenvolvedor.vercel.app" 
+              href="cstefani-desenvolvedor.vercel.app" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Acessar o site do desenvolvedor C.Stefani"
@@ -57,9 +164,9 @@ export const Footer = () => {
               </span> - Especialista em Soluções WEB
             </a>
           </p>
-          
+
         </div>
       </div>
     </footer>
   );
-};
+}
