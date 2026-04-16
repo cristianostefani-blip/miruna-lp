@@ -83,7 +83,7 @@ const HeroContent = () => {
               asChild 
               className="bg-silver-gradient text-black font-bold h-14 px-10 rounded-full hover:opacity-90 transition-opacity text-lg tracking-wide uppercase"
             >
-              <Link href={whatsappLink}>
+              <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 Agendar Horário
               </Link>
             </Button>
