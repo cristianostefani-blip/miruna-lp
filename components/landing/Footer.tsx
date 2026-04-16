@@ -15,13 +15,13 @@ type Schedule = {
 };
 
 const businessHours: Schedule[] = [
-  { day: 0, label: "Domingo", open: "Fechado", close: "Fechado" },
-  { day: 1, label: "Segunda-feira", open: "11:00", close: "22:00" },
-  { day: 2, label: "Terça-feira", open: "11:00", close: "22:00" },
-  { day: 3, label: "Quarta-feira", open: "11:00", close: "22:00" },
-  { day: 4, label: "Quinta-feira", open: "11:00", close: "22:00" },
+  { day: 0, label: "Domingo", open: "11:00", close: "20:00" },
+  { day: 1, label: "Segunda-feira", open: "11:00", close: "23:00" },
+  { day: 2, label: "Terça-feira", open: "11:00", close: "23:00" },
+  { day: 3, label: "Quarta-feira", open: "11:00", close: "23:00" },
+  { day: 4, label: "Quinta-feira", open: "11:00", close: "23:00" },
   { day: 5, label: "Sexta-feira", open: "11:00", close: "23:00" },
-  { day: 6, label: "Sábado", open: "11:00", close: "23:00" },
+  { day: 6, label: "Sábado", open: "11:00", close: "20:00" },
 ];
 
 
