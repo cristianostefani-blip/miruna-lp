@@ -24,7 +24,6 @@ const businessHours: Schedule[] = [
   { day: 6, label: "Sábado", open: "11:00", close: "20:00" },
 ];
 
-
 export function Footer() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -62,26 +61,34 @@ export function Footer() {
     return () => clearInterval(interval);
   }, []);
 
-
-return (
+  return (
     <footer className={`bg-[#050403] border-t border-white/5 pt-16 pb-8 px-6 ${montserrat.className}`}>
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Logo Centralizada */}
         <div className="mb-10 opacity-70 hover:opacity-100 transition-opacity duration-300">
           <Image 
-            src="/enjoy-logo.png" 
-            alt="Enjoy Spa Logo" 
+            src="/logo.png" 
+            alt="Logo da Clínica Miruna" 
             width={160} 
             height={160} 
             className="rounded-lg object-cover"
           />
         </div>
 
-        {/* Informações Fiscais / Localização / Horários */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-2xl mb-16 text-center md:text-left">
+        {/* MUDANÇA AQUI: Alterado para grid-cols-3 e max-w-5xl para caber as 3 colunas em telas grandes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-5xl mb-16 text-center md:text-left">
           
-          {/* BLOCO 1: LOCALIZAÇÃO */}
+          {/* BLOCO 1: SOBRE A MIRUNA */}
+          <div className="flex flex-col items-center md:items-start space-y-3">
+             <h3 className="text-white text-xl font-serif mb-2">Miruna Platinum</h3>
+             <p className="text-sm text-[#a89f91] font-light leading-relaxed max-w-xs">
+               Um conceito elevado de relaxamento em Moema. 
+               Ambiente climatizado, ducha privativa e atendimento de alto padrão.
+             </p>
+          </div>
+
+          {/* BLOCO 2: LOCALIZAÇÃO */}
           <div className="flex flex-col items-center md:items-start space-y-3">
             <h4 className="text-[#d4af37] text-sm font-medium tracking-widest uppercase mb-1">Localização</h4>
             <div className="flex items-start gap-2 text-[#a89f91] font-light text-sm">
@@ -90,7 +97,7 @@ return (
             </div>
           </div>
 
-          {/* BLOCO 2: ATENDIMENTO INTELIGENTE */}
+          {/* BLOCO 3: ATENDIMENTO INTELIGENTE */}
           <div className="flex flex-col items-center md:items-start space-y-3">
             <h4 className="text-[#d4af37] text-sm font-medium tracking-widest uppercase mb-1">Atendimento</h4>
             
@@ -148,7 +155,7 @@ return (
         <div className="flex flex-col items-center space-y-4 text-center w-full">
           
           <p className="text-[10px] md:text-xs text-[#a89f91] font-light tracking-wider">
-            © {new Date().getFullYear()} Enjoy Spa. Todos os direitos reservados.
+            © {new Date().getFullYear()} Clínica Miruna. Todos os direitos reservados.
           </p>
           
           <p className="text-[10px] md:text-xs text-[#a89f91] tracking-[0.3em] font-light transition-colors duration-500">
