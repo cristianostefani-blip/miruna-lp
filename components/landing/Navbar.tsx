@@ -59,7 +59,7 @@ const NavbarContent = () => {
           
           {/* BOTÃO PLATINUM COM "LUZ ANDANDO" */}
           <Button asChild className="rounded-full px-8 py-6 uppercase tracking-widest text-xs border-2 border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] btn-platinum-shine hover:scale-105">
-            <Link href={whatsappLink}>
+            <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
               <span className="relative flex items-center gap-2 z-10">
                   Agendar
               </span>
@@ -95,7 +95,9 @@ const NavbarContent = () => {
                         
                         <div className="mt-4">
                           <Button asChild className="w-full btn-platinum-shine rounded-full py-6 uppercase tracking-widest font-bold text-xs">
-                              <Link href={whatsappLink}>Agendar Agora</Link>
+                              <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                Agendar Agora
+                              </Link>
                           </Button>
                         </div>
                     </div>
