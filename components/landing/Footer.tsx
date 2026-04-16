@@ -44,16 +44,15 @@ export const Footer = () => {
           </div>
 
           {/* Sua Assinatura Sênior (Agora com Link!) */}
-          <p className="text-[10px] md:text-xs text-stone-300 uppercase tracking-[0.3em] font-light transition-colors duration-500">
-
+          <p className="text-[10px] md:text-xs text-[#a89f91] tracking-[0.3em] font-light transition-colors duration-500">
             <a 
-              href="https://cstefani-desenvolvedor.vercel.app" // <--- COLOQUE O SEU LINK AQUI
+              href="https://cstefani-desenvolvedor.vercel.app" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Acessar o site do desenvolvedor C.Stefani"
               className="hover:text-white transition-colors duration-300 group"
             >
-              <span className="text-white font-bold group-hover:underline underline-offset-4">
+              <span className="text-white font-medium group-hover:underline underline-offset-4">
                 C.Stefani
               </span> - Especialista em Soluções WEB
             </a>
