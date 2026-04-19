@@ -93,7 +93,7 @@ export function Footer() {
             <h4 className="text-[#d4af37] text-sm font-medium tracking-widest uppercase mb-1">Localização</h4>
             <div className="flex items-start gap-2 text-[#a89f91] font-light text-sm">
               <MapPin className="w-4 h-4 shrink-0 text-[#d4af37]/70 mt-1" />
-              <span className="leading-relaxed">Rua Condessa do Pinhal 279, Campo Belo<br/>São Paulo - SP, 04610-060</span>
+              <span className="leading-relaxed">Av. Miruna 644 - Moema <br/>São Paulo - SP, 04084-002</span>
             </div>
           </div>
 
